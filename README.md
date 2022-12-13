@@ -36,5 +36,8 @@ Plan:
 - like/vote feature
 - move forward with additional features. 
 
-[wireframe.pdf](https://github.com/clane62/craft-app/files/10214283/wireframe.pdf)
+![Screen Shot 2022-12-13 at 3 12 47 pm](https://user-images.githubusercontent.com/117622538/207224911-f93ace09-7c83-4e0a-866d-a03311372e9c.png)
+![Screen Shot 2022-12-13 at 3 12 33 pm](https://user-images.githubusercontent.com/117622538/207224917-9363013b-227f-42dd-a459-dca8d3fe176b.png)
+![Screen Shot 2022-12-13 at 3 12 18 pm](https://user-images.githubusercontent.com/117622538/207224923-d1e62e4d-46df-4fdf-b7b4-c842bfbba0a8.png)
+
 
