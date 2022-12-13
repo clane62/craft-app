@@ -36,4 +36,5 @@ Plan:
 - like/vote feature
 - move forward with additional features. 
 
+[wireframe.pdf](https://github.com/clane62/craft-app/files/10214283/wireframe.pdf)
 
