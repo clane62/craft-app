@@ -13,7 +13,7 @@ MVP:
 - user sign up and log in functionality
 - upload and delete content functionality.
 
-Additional features
+Additional features:
 - content to display via popularity (number of likes). 
 - random 'daily' feature post
 - add comment functionality to posts
