@@ -1,0 +1,25 @@
+<h1>Craft App</h1>
+
+<a href="/crafts/new">Add a project</a>
+
+<section class="crafts">
+  <% craft.each do |craft| %>
+    <section class="craft">
+      <header>
+        <h2><%= craft['project_name'] %></h2>
+         
+         <section class="controls">
+          <form action="/crafts/<%= craft['id'] %>/edit" method="GET">
+          <button>Edit</button>
+          </form> 
+
+          <form action="/crafts/<%= craft['id'] %>" method="POST">
+            <input type="hidden" name="_method" value="delete">
+            <button>Delete</button>
+          </form>
+          <img src="<%= craft['image_url'] %>" alt="">
+          </section>
+      </header>
+    </section>
+  <% end %>
+</section>
