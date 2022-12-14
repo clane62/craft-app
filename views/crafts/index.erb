@@ -1,4 +1,4 @@
-<h1>Craft App</h1>
+<h1>craft app</h1>
 
 <% if logged_in? %>
   <h3>Welcome to Craft App <%= current_user['first_name'] %></h3>
@@ -16,12 +16,14 @@
     <% craft.each do |craft| %>
       <section class="craft">
         <header>
-          <h2><%= craft['project_name'] %></h2>
           
+          <h2><%= craft['project_name'] %></h2>
           <section class="controls">
             <form action="/crafts/<%= craft['id'] %>/edit" method="GET">
             <button>Edit</button>
             </form> 
+
+           
 
             <form action="/crafts/<%= craft['id'] %>" method="POST">
               <input type="hidden" name="_method" value="delete">
@@ -32,12 +34,11 @@
               <button>Like</button>
             </form>
           </section>
+            <img src="<%= craft['image_url'] %>" alt="">
         </header>
-            
-        <img src="<%= craft['image_url'] %>" alt="">
       </section>
     <% end %>
-  </section>
+    </section>
 <% else %>
   <a href="/users/new">Sign Up</a>
   <a href="/sessions/new">Log In</a>
