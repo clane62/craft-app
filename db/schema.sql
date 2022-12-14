@@ -19,3 +19,11 @@ VALUES
   ('Cactus', 'Mel', 'https://images.unsplash.com/photo-1630238083594-43d3846190d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGNyb2NoZXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60', 'yarn', 'crocheted cactus in a pot', 'Finished'),
   ('A red scarf', 'Sian', 'https://images.unsplash.com/photo-1608033087328-f282cc17a27f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fGNyb2NoZXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60', 'yarn', 'winter scarf, nearly finished', 'Work in progress');
 
+CREATE TABLE users(
+  id SERIAL PRIMARY KEY,
+  first_name TEXT,
+  last_name TEXT,
+  email TEXT,
+  username TEXT,
+  admin INTEGER
+);

@@ -38,8 +38,8 @@ button {
   text-overflow: ellipsis;
 }
 
-.craft img {
-  width: 100%;
+.craft image {
+  width: 80%;
   height: 230px;
   object-fit: cover;
 }
