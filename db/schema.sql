@@ -27,3 +27,5 @@ CREATE TABLE users(
   username TEXT,
   admin INTEGER
 );
+
+ALTER TABLE users ADD COLUMN password_digest TEXT;

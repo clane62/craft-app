@@ -1,26 +1,33 @@
 <h1>Craft App</h1>
 
-<a href="/crafts/new">Add a project</a>
-<a href="/users/new">join us</a>
+<% if logged_in? %>
+  <h3>Welcome to Craft App <%= current_user['first_name'] %></h3>
 
-<section class="crafts">
-  <% craft.each do |craft| %>
-    <section class="craft">
-      <header>
-        <h2><%= craft['project_name'] %></h2>
-         
-         <section class="controls">
-          <form action="/crafts/<%= craft['id'] %>/edit" method="GET">
-          <button>Edit</button>
-          </form> 
+  <a href="/craft/new">Add a project</a>
 
-          <form action="/crafts/<%= craft['id'] %>" method="POST">
-            <input type="hidden" name="_method" value="delete">
-            <button>Delete</button>
-          </form>
-          <img src="<%= craft['image_url'] %>" alt="">
+  <section class="crafts">
+    <% craft.each do |craft| %>
+      <section class="craft">
+        <header>
+          <h2><%= craft['project_name'] %></h2>
+          
+          <section class="controls">
+            <form action="/crafts/<%= craft['id'] %>/edit" method="GET">
+            <button>Edit</button>
+            </form> 
+
+            <form action="/crafts/<%= craft['id'] %>" method="POST">
+              <input type="hidden" name="_method" value="delete">
+              <button>Delete</button>
+            </form>
           </section>
-      </header>
-    </section>
-  <% end %>
-</section>
+        </header>
+            
+        <img src="<%= craft['image_url'] %>" alt="">
+      </section>
+    <% end %>
+  </section>
+<% else %>
+  <a href="/users/new">Sign Up</a>
+  <a href="/sessions/new">Log In</a>
+<% end %>
