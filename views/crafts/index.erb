@@ -3,7 +3,14 @@
 <% if logged_in? %>
   <h3>Welcome to Craft App <%= current_user['first_name'] %></h3>
 
+  <section class="controls">
+    <form action="/sessions" method="POST">
+      <input type="hidden" name="_method" value="delete">
+      <button>Log out</button>
+    </form>
+
   <a href="/craft/new">Add a project</a>
+  </section>
 
   <section class="crafts">
     <% craft.each do |craft| %>
@@ -19,6 +26,10 @@
             <form action="/crafts/<%= craft['id'] %>" method="POST">
               <input type="hidden" name="_method" value="delete">
               <button>Delete</button>
+            </form>
+
+             <form action="/crafts/<%= craft['id'] %>/likes" method="POST">
+              <button>Like</button>
             </form>
           </section>
         </header>

@@ -57,3 +57,11 @@ delete '/crafts/:id' do
   redirect '/'
 
 end
+
+post '/crafts/:id/likes' do
+  project_id = params['id']
+  user_id = session['user_id']
+
+  run_sql("INSERT INTO likes(user_id, project_id) VALUES($1, $2)", [user_id, project_id])
+  redirect '/'
+end

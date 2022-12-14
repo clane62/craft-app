@@ -29,3 +29,13 @@ CREATE TABLE users(
 );
 
 ALTER TABLE users ADD COLUMN password_digest TEXT;
+
+CREATE TABLE likes(
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER,
+  project_id INTEGER
+);
+
+ALTER TABLE likes
+ADD CONSTRAINT unique_likes
+UNIQUE(user_id, project_id); 
