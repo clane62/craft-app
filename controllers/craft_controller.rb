@@ -1,9 +1,15 @@
 get '/' do
+  
   craft = all_crafts()
   # ORDER BY ID - might be impacted once add the like functionality. 
 
+  feature_post = feature_post()
+
+  image_url = params['image_url']
+
   erb :'crafts/index', locals: {
-    craft: craft
+    craft: craft,
+    feature_post: feature_post,
   }
 end
 
@@ -63,15 +69,15 @@ delete '/crafts/:id' do
 end
 
 post '/crafts/:id/likes' do
-  project_id = params['id']
+  like_project_id = params['id']
   user_id = session['user_id']
   like_count = params['like_count']
-  id = params['id']
 
 
-  run_sql("INSERT INTO likes(user_id, project_id) VALUES($1, $2)", [user_id, project_id])
 
-  run_sql("UPDATE craft SET like_count = like_count + 1")
+  run_sql("INSERT INTO likes(user_id, like_project_id) VALUES($1, $2)", [user_id, like_project_id])
+
+  # run_sql("UPDATE craft SET like_count = like_count + 1")
 
   redirect '/'
 
@@ -83,3 +89,4 @@ end
 #   comments: comments
   
 # end
+

@@ -1,5 +1,19 @@
 def all_crafts
   run_sql('SELECT * FROM craft ORDER BY id')
+
+  # run_sql("SELECT project_name, like_project_id
+  #   FROM craft
+  #   JOIN likes
+  #   on craft.id = likes.user_id
+  #   ORDER BY project_name")
+
+  # run_sql('SELECT * FROM craft ORDER BY like_count')
+
+end
+
+def feature_post()
+  run_sql("SELECT * FROM craft ORDER BY RANDOM () LIMIT 1")
+
 end
 
 def create_craft(project_name, username, image_url, materials, description, status)
@@ -17,8 +31,3 @@ end
 def delete_craft(id)
   run_sql('DELETE FROM craft WHERE id = $1', [id])
 end
-
-# def count_likes
-
-    
-# end

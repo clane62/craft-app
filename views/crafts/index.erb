@@ -3,8 +3,23 @@
 <img src="/stylesheets/images/you_made_it_logo.png" alt="">
 </div>
 
+
+
 <% if logged_in? %>
-  <h3>Welcome to Craft App <%= current_user['first_name'] %></h3>
+  <h3>Hello <%= current_user['first_name'] %>! </h3>
+  <section class="feature-main">
+  <div>
+  <img src="<%=feature_post[0]['image_url']%>" alt="">
+  </div>
+  <div class="main-content">
+  <p>Name:</p>
+  <p><%= feature_post[0]['project_name'] %></p>
+  <p>Submitted by:</p>
+  <p><%= feature_post[0]['username'] %></p>
+  </div>
+
+  
+  </section>
 
   <section class="controls">
     <form action="/sessions" method="POST">
@@ -41,12 +56,20 @@
             <section class="details">
             <p><%= craft['materials'] %></p>
             <p><%= craft['description'] %></p>
+            <div class="status_"><%= craft['status'] %></div>
             </section>
           </header>
       </section>
     <% end %>
     </section>
 <% else %>
+  <section class="feature-post">
+  <div>
+  <img src="<%=feature_post[0]['image_url']%>" alt="">
+  </div>
+
+  </section>
   <a href="/users/new">Sign Up</a>
   <a href="/sessions/new">Log In</a>
+
 <% end %>
