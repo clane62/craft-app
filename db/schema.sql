@@ -39,3 +39,17 @@ CREATE TABLE likes(
 ALTER TABLE likes
 ADD CONSTRAINT unique_likes
 UNIQUE(user_id, project_id); 
+
+ALTER TABLE craft ADD COLUMN like_count INTEGER;
+
+-- UPDATE craft SET like_count = like_count + 1;
+
+-- UPDATE craft SET like_count = 0;
+
+ALTER TABLE craft ALTER COLUMN like_count SET DEFAULT 0;
+
+ALTER TABLE users
+ADD CONSTRAINT unique_users
+UNIQUE(email);
+
+UPDATE users SET admin = 1 WHERE id = 22;

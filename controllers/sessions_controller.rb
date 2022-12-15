@@ -9,16 +9,12 @@ post '/sessions' do
   user = find_user_by_email(email)
 
 
-  puts BCrypt::Password.new(user['password_digest'])
 
-  puts password
-
+ 
   #  Using BCRypt to check that the user provided the correct password (authentication)
 
-  if user 
-    # && BCrypt::Password.new(user['password_digest']) == password
+  if user && BCrypt::Password.new(user['password_digest']) == password
     # log the user in. 
-    puts 
     session['user_id'] = user['id']
     # above will only work if we enable sessions in the main rb. 
 

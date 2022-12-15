@@ -7,9 +7,11 @@ get '/' do
   }
 end
 
-get '/crafts/new' do
+get '/craft/new' do
   erb :'crafts/new'
 end
+
+
 
 post '/craft' do
   
@@ -46,6 +48,8 @@ put '/crafts/:id' do
 
   update_craft(id, project_name, username, image_url, materials, description, status)
 
+  run_sql("UPDATE craft SET like_count = 0")
+
   redirect '/'
 end
 
@@ -61,7 +65,21 @@ end
 post '/crafts/:id/likes' do
   project_id = params['id']
   user_id = session['user_id']
+  like_count = params['like_count']
+  id = params['id']
+
 
   run_sql("INSERT INTO likes(user_id, project_id) VALUES($1, $2)", [user_id, project_id])
+
+  run_sql("UPDATE craft SET like_count = like_count + 1")
+
   redirect '/'
+
 end
+
+# get '/crafts/:id/comment' do
+#   comments = params['comments']
+
+#   comments: comments
+  
+# end

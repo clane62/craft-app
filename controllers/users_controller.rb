@@ -6,8 +6,8 @@ post '/users' do
   first_name = params['first_name']
   last_name = params['last_name']
   email = params['email']
-  username = ['username']
-  password = ['password']
+  username = params['username']
+  password = params['password']
 
   create_user(first_name, last_name, email, username, password)
 

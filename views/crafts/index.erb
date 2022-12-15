@@ -1,4 +1,7 @@
-<h1>craft app</h1>
+<div class="header-image">
+
+<img src="/stylesheets/images/you_made_it_logo.png" alt="">
+</div>
 
 <% if logged_in? %>
   <h3>Welcome to Craft App <%= current_user['first_name'] %></h3>
@@ -35,7 +38,11 @@
             </form>
           </section>
             <img src="<%= craft['image_url'] %>" alt="">
-        </header>
+            <section class="details">
+            <p><%= craft['materials'] %></p>
+            <p><%= craft['description'] %></p>
+            </section>
+          </header>
       </section>
     <% end %>
     </section>

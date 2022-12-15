@@ -17,3 +17,8 @@ end
 def delete_craft(id)
   run_sql('DELETE FROM craft WHERE id = $1', [id])
 end
+
+# def count_likes
+
+    
+# end
